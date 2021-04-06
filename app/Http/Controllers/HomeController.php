@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -15,7 +14,7 @@ class HomeController extends Controller
      */
     public function __invoke(): View
     {
-        $posts = Post::all();
+        $posts = Post::all()->sortByDesc('created_at');
 
         return view('home', compact('posts'));
     }

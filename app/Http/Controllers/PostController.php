@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class PostController
 {
@@ -20,8 +24,9 @@ class PostController
      * Show details of a post.
      *
      * @param Post $post
+     * @return View
      */
-    public function show(Post $post)
+    public function show(Post $post): View
     {
         return view('show', compact('post'));
     }
@@ -71,6 +76,7 @@ class PostController
         Post::create([
             'title' => $request['title'],
             'content' => $request['content'],
+            'user_id'=>Auth::user()->id
         ]);
     }
 
@@ -81,6 +87,7 @@ class PostController
      */
     public function edit(Post $post)
     {
+
         return view('edit', compact('post'));
     }
 
@@ -92,6 +99,9 @@ class PostController
      */
     public function update(Post $post, Request $request): RedirectResponse
     {
+        if(Gate::denies('post.update', $post)) {
+            abort(403 ,'you cant edit this blogpost');
+        }
         $validated = $request->validate([
             'title' => 'required|max:100|min:5',
             'content' => 'required|min:10'
@@ -111,6 +121,7 @@ class PostController
      */
     public function delete(Post $post): RedirectResponse
     {
+
         $post->delete();
 
         return redirect()->route('home')->with([

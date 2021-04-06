@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    background: #323539;
+    justify-content: space-between;
+    align-items: center;
+}
+ .brand_name{
+     text-decoration: none;
+     display: inline-block;
+     align-items: center;
+     margin: 10px 0;
+ }
+
+.nav_links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    align-items: center;
+}
+
+li a {
+    display: inline-block;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.overflow-wrap {
+    overflow-wrap: break-word;
+}
+
+.d-block{
+    text-decoration: none;
+    color: #323539;
+}
+
+.logout{
+    border: 2px solid #6a1818;
+    color: #0a58ca;
+    background: #323539;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+.logout:hover{
+    color: #275699;
+}
+
+.footer{
+    background: black;
+    padding: 20px;
+    border: 1px solid red;
+}
+

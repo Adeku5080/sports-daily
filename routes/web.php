@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', HomeController::class)->name('home' );
-Route::get('/post/{post}', [PostController::class, 'show'])->name('show');
-Route::get('/post/create',[PostController::class,'create'])->name('create');
-Route::post('/post',[PostController::class,'store'])->name('store');
-Route::get('/post/{post}/edit',[PostController::class,'edit'])->name('edit');
-Route::put('/post/{post}',[PostController::class,'update'])->name('update');
-Route::delete('/post/{post}',[PostController::class,'delete'])->name('delete');
+Route::get('/' ,HomeController::class)->name('home');
+Route::get('/post',[PostController::class,'create'])->name('create');
+Route::post('/post/store',[PostController::class, 'store'])->name('store');
+Route::get('/show/{post}',[PostController::class, 'show'])->name('show');
+Route::get('/edit',[PostController::class, 'edit'])->name('edit');
+Route::put('/update',[PostController::class, 'update'])->name('update');
+Route::delete('/delete/{post}',[PostController::class,'delete'])->name('delete');
+Route::post('/show/comments/{post}',[PostCommentController::class,'storeComment'])->name('create-comment');
+require __DIR__.'/auth.php';
+
