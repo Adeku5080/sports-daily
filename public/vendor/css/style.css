@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cell{
+    border: 1px solid black;
+    padding: 10px;
+}
+.container{
+    display: grid;
+    min-height: 200vh;
+    grid-template-rows: 50px auto 150px;
+    grid-template-columns: 150px auto 150px;
+
+    grid-template-areas:
+        " nav-bar nav-bar nav-bar "
+        " sidebar content ads"
+        " footer footer footer"
+}
+
+.cell-1{
+    grid-area: nav-bar;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f5f1;
+}
+
+.cell-1 li {
+    list-style: none;
+}
+
+.cell-1 a{
+    text-decoration: none;
+}
+
+.nav-links{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.nav-links li a{
+    display: inline-block;
+    padding:8px;
+    margin-right: 5px;
+    color: black;
+}
+.brand_name{
+    color: black;
+}
+
+.logout{
+    display: inline-block;
+    padding: 8px;
+}
+
+.cell-2{
+    grid-area: sidebar;
+}
+
+.cell-3{
+    grid-area: content;
+}
+
+.post-title{
+    text-decoration: none;
+}
+.post-content{
+    text-decoration: none;
+    color: black;
+}
+
+.cell-4{
+    grid-area: ads;
+}
+.cell-5{
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #393e46;
+}
+
+.cell-5 a{
+    display: inline-block;
+    font-size: 40px;
+    margin: 0 10px;
+    color: white;
+}

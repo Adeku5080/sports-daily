@@ -13,7 +13,7 @@
 <body>
 <header class="header">
     <div>
-        <a href=" {{route('home')}} " class="brand_name"> My Safe Space</a>
+        <a href=" {{route('home')}} " class="brand_name"> Sports daily</a>
     </div>
 
     <ul class="nav_links">

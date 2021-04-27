@@ -1,17 +1,76 @@
-@extends('layout')
+<!Doctype html>
+<html>
+<head>
+    <title>@yield('page-title', 'Welcome to My Blog')</title>
 
-@section('content')
+    <link rel="stylesheet" href="{{ asset('vendor/css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+          crossorigin="anonymous"/>
+</head>
 
-    @foreach($posts as $post)
-        @can('view-any', $post)
-            <a href="{{ route('show', $post->id) }}" class="d-block">
-                <h2>{{ $post->title }}</h2>
+<body>
+<main class="container">
 
-                <p class="overflow-wrap">
-                    {{ substr(strip_tags($post->content), 0,300) }}{{ strlen(strip_tags($post->content)) > 300 ? "..." : "" }}
-                </p>
-            </a>
-        @endcan
-    @endforeach
-@endsection
+    <div class="cell cell-1">
+        <div>
+            <a href=" {{route('home')}} " class="brand_name"> Sports Daily</a>
+        </div>
+
+        <div>
+            <ul class="nav-links">
+                @can('create', \App\Models\Post::class)
+                    <li>
+                        <a href="{{route('create')}}"> Add-post</a>
+                    </li>
+                @endcan
+
+                <li>
+                    <form method="post" action="{{route('logout')}}">
+                        @csrf
+                        <button class="logout">Logout</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="cell cell-2">
+        ads
+    </div>
+
+    <div class="cell cell-3">
+        @foreach($posts as $post)
+            @can('view-any', $post)
+                <a href="{{ route('show', $post->id) }}" class="post-title">
+                    <h2>{{ $post->title }}</h2>
+
+                    <p class="post-content">
+                        {{ substr(strip_tags($post->content), 0,300) }}{{ strlen(strip_tags($post->content)) > 300 ? "..." : "" }}
+                    </p>
+                </a>
+            @endcan
+        @endforeach
+    </div>
+
+    <div class="cell cell-4">
+        sidebar
+    </div>
+    <div class="cell cell-5">
+        <div>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <div>
+            <a href="https://twitter.com/Mo_jallo" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+        </div>
+    </div>
+</main>
+</body>
+
+
+
 
