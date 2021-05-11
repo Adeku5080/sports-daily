@@ -4,14 +4,13 @@
     box-sizing: border-box;
 }
 .cell{
-    border: 1px solid black;
     padding: 10px;
 }
 .container{
     display: grid;
     min-height: 200vh;
-    grid-template-rows: 50px auto 150px;
-    grid-template-columns: 150px auto 150px;
+    grid-template-rows: 60px auto 200px;
+    grid-template-columns: 300px auto 300px;
 
     grid-template-areas:
         " nav-bar nav-bar nav-bar "
@@ -24,7 +23,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f5f1;
+    background-color: #1a1a1a;
+    position: sticky; top: 0;
 }
 
 .cell-1 li {
@@ -45,35 +45,83 @@
     display: inline-block;
     padding:8px;
     margin-right: 5px;
-    color: black;
+    color: #ffffff;
+    transition: color 1s ease,background 1s ease;
+}
+
+.nav-links li a:hover{
+    background: #474747;
+    color: #d4d2d2;
 }
 .brand_name{
-    color: black;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+    transition: color 1s ease,background 1s ease,padding 2s ease;
+}
+
+.brand_name:hover{
+    background: #474747;
+    color: #d4d2d2;
+    padding-left: 10px;
 }
 
 .logout{
     display: inline-block;
-    padding: 8px;
+    padding: 8px 13px;
+    background-color: #6bd097;
+    border-radius: 8px;
+    transition: background 2s ease;
+}
+.logout:hover{
+    background: #198445;
+    cursor: pointer;
 }
 
 .cell-2{
-    grid-area: sidebar;
+    grid-area: ads;
+    overflow-wrap: anywhere;
+    margin-left: 23px;
+    background: #EEEEEE;
+}
+
+.recent-post{
+    margin: 10px 0;
+
 }
 
 .cell-3{
     grid-area: content;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+    background: white;
+    margin-left: 20px;
+
 }
 
 .post-title{
     text-decoration: none;
+    font-size: 24px;
+    color:#1a1a1a;
+    margin-top: 10px;
+
 }
 .post-content{
     text-decoration: none;
-    color: black;
+    color: #4c5267;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .cell-4{
-    grid-area: ads;
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+    border-right: none;
+    background: #EEEEEE
+
 }
 .cell-5{
     grid-area: footer;

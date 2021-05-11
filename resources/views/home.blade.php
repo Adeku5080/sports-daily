@@ -36,7 +36,10 @@
     </div>
 
     <div class="cell cell-2">
-        ads
+     <h2>Most Recent Posts</h2>
+        @foreach($recentPosts as $recentPost)
+            <p class="recent-post"> {{ $recentPost->title }} </p>
+        @endforeach
     </div>
 
     <div class="cell cell-3">
@@ -54,7 +57,11 @@
     </div>
 
     <div class="cell cell-4">
-        sidebar
+        <h2>Most Popular Posts</h2>
+        @foreach($popularPosts as $popularPost)
+            <p class="recent-post">{{ $popularPost->title }} </p>
+
+        @endforeach
     </div>
     <div class="cell cell-5">
         <div>
