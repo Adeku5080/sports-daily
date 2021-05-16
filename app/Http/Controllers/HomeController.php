@@ -16,9 +16,9 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         $posts = Post::all()->sortByDesc('created_at');
-        $popularPosts = $this->fetchAllPostMostComments();
+       $popularPosts = $this->fetchAllPostMostComments();
         $recentPosts = $this->mostRecentPosts();
-        return view('home', compact('posts', 'popularPosts','recentPosts'));
+        return view('home', compact('posts','popularPosts','recentPosts'));
     }
 
     /**
