@@ -2,8 +2,8 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href={{ asset('vendor/bootstrap/css/bootstrap.css') }}>
-    <link rel="stylesheet" href="{{ asset('vendor/css/show.css') }}">
+    <link rel="stylesheet" href={{ secure_asset('vendor/bootstrap/css/bootstrap.css') }}>
+    <link rel="stylesheet" href="{{ secure_asset('vendor/css/show.css') }}">
 </head>
 <body>
 <header class="nav-bar">
