@@ -8,11 +8,22 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+
+    /**
+     * adding auth middleware
+     *
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * show homepage with posts.
      *
      * @return View
      */
+
     public function __invoke(): View
     {
         $posts = Post::all()->sortByDesc('created_at');

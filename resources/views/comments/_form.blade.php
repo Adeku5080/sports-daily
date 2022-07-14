@@ -3,9 +3,9 @@
         @csrf
         <div class="form-group">
 
-            <textarea type="text" name="content" class="form-control"></textarea>
+            <textarea placeholder="Add a comment" cols="80" rows="15" type="text" name="content" class="form-control"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Add comment</button>
+        <button type="submit" class="primary-btn">Add comment</button>
 
     </form>
 

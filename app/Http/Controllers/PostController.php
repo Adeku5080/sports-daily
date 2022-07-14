@@ -12,14 +12,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 
-class PostController
+class PostController extends Controller
 {
     /**
-     * Shows a page of all posts.
+     * adding auth middleware
      */
-    public function index()
+    public function __construct()
     {
+        $this->middleware('auth');
     }
+
+//    /**
+//     * Shows a page of all posts.
+//     */
+//    public function index()
+//    {
+//    }
 
     /**
      * Show details of a post.
@@ -62,7 +70,7 @@ class PostController
     private function validateStore(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:100|min:5',
+            'title' => 'required|max:1000|min:5',
             'content' => 'required|min:10'
         ]);
     }
@@ -129,6 +137,8 @@ class PostController
             'status' => 'Blogpost was deleted'
         ]);
     }
+
+
 
 
 }
