@@ -25,9 +25,6 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3"
     },
-
-
-
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
@@ -67,3 +64,4 @@
         ]
     }
 }
+
