@@ -70,7 +70,7 @@ class PostController extends Controller
     private function validateStore(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:1000|min:5',
+            'title' => 'required|max:2000|min:5',
             'content' => 'required|min:10'
         ]);
     }
