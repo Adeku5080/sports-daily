@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Middleware\checkAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/posts', [PostController::class, 'index']);
     Route::get('/posts/{post}', [PostController::class, 'show']);
-    Route::post('/post', [PostController::class, 'create']);
-    Route::put('/posts/{post}',[PostController::class,'update']);
-    Route::delete('/posts/{post}',[PostController::class,'delete']);
+    Route::post('/post', [PostController::class, 'create'])->middleware(checkAdmin::class);
+    Route::put('/posts/{post}',[PostController::class,'update'])->middleware(checkAdmin::class);
+    Route::delete('/posts/{post}',[PostController::class,'delete'])->middleware(checkAdmin::class);
 
 });
 

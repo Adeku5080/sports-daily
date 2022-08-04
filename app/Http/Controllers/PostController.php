@@ -110,10 +110,8 @@ class PostController extends Controller
      */
     public function update(Post $post, Request $request): RedirectResponse
     {
-//        if(Gate::denies('post.update', $post)) {
-//            abort(403 ,'you cant edit this blogpost');
-//        }
-        $validated = $request->validate([
+
+         $request->validate([
             'title' => 'required|max:100|min:5',
             'content' => 'required|min:10',
 
