@@ -56,7 +56,7 @@
 
         @if(auth()->user()->is_admin)
 
-                <a href="{{route('edit', $post->id )}}" class="edit-button">
+                <a href="{{route('edit', $post)}}" class="edit-button">
                     edit
                 </a>
         @endif

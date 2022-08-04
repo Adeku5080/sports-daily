@@ -85,7 +85,7 @@ class PostController extends Controller
         Post::create([
             'title' => $request['title'],
             'content' => $request['content'],
-            'user_id'=>Auth::user()->id
+            'user_id' => Auth::user()->id
         ]);
     }
 
@@ -93,6 +93,7 @@ class PostController extends Controller
      * Show form to update.
      *
      * @param Post $post
+     * @return View
      */
     public function edit(Post $post)
     {
@@ -105,17 +106,23 @@ class PostController extends Controller
      *
      * @param Post $post
      * @param Request $request
+     * @return RedirectResponse
      */
     public function update(Post $post, Request $request): RedirectResponse
     {
-        if(Gate::denies('post.update', $post)) {
-            abort(403 ,'you cant edit this blogpost');
-        }
+//        if(Gate::denies('post.update', $post)) {
+//            abort(403 ,'you cant edit this blogpost');
+//        }
         $validated = $request->validate([
             'title' => 'required|max:100|min:5',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
+
         ]);
-        $post->fill($validated);
+        $post->update([
+            'title'=>$request['title'],
+            'content' => $request['content'],
+            'user_id' => Auth::id()
+        ]);
         $post->save();
 
         return redirect()->route('show', ['post' => $post->id]);
@@ -137,8 +144,6 @@ class PostController extends Controller
             'status' => 'Blogpost was deleted'
         ]);
     }
-
-
 
 
 }

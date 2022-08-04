@@ -1,97 +1,92 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.navbar{
-    height:80px;
+.navbar {
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:100vw;
+    width: 100vw;
     background: #000000;
     position: fixed;
-
-
-
 }
 
-.brand_name{
-text-decoration: none;
-  font-size:30px;
-    font-weight:700;
-    color:#fff;
-    margin-left:25px;
+/**/
+.brand_name {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    margin-left: 25px;
 }
+
 .container {
     background: #151515;
-    overflow-x:hidden;
-    min-height:100vh;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
-.content{
+.content {
     /*border:1px solid red;*/
-    width:67%;
-    margin:9rem auto;
+    width: 67%;
+    margin: 9rem auto;
     overflow-wrap: anywhere;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
-.post-title{
-    text-decoration:none;
-    color:#fff;
-    font-size:24px;
-    width:100%;
+.post-title {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    width: 100%;
     font-family: Roboto;
-
 }
 
-.post-content{
-    color:#b3b3b3;
-    font-size:16px;
+.post-content {
+    color: #b3b3b3;
+    font-size: 16px;
     line-height: 32px;
     /*border:1px solid blue;*/
     width: 100%;
-    margin-top:1rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
     font-family: sans-serif;
 }
-.nav-links{
+
+.nav-links {
     display: flex;
-    margin-right:2rem;
-
+    margin-right: 2rem;
 }
 
-.addpost{
+.addpost {
     text-decoration: none;
-    color:#fff;
-    margin-right:7px;
+    color: #fff;
+    margin-right: 7px;
 }
 
-.logout{
+.logout {
     border: 1px solid black;
     background: none;
-    color:white;
+    color: white;
 }
 
-.logout:hover{
+.logout:hover {
     cursor: pointer;
 }
 
-.more{
+.more {
     color: #038903;
 }
 
 /*mobile responsiveness*/
 
-@media (max-width: 800px){
+@media (max-width: 800px) {
     .navbar{
-        height: 80px;
-
-
-
-
+        background: blue;
+        position: fixed;
     }
 }
 
