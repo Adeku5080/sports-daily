@@ -2,7 +2,8 @@
 <html>
 <head>
     <title></title>
-{{--    <link rel="stylesheet" href={{ secure_asset('vendor/bootstrap/css/bootstrap.cs') }}>--}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {{--    <link rel="stylesheet" href={{ secure_asset('vendor/bootstrap/css/bootstrap.cs') }}>--}}
     <link rel="stylesheet" href="/css/show.css">
 </head>
 <body class="container">
@@ -13,13 +14,6 @@
 
     <div>
         <ul class="nav-links">
-{{--            @can('create', \App\Models\Post::class)--}}
-{{--                <li>--}}
-{{--                    <a href="{{route('create')}}"> Add-post</a>--}}
-{{--                </li>--}}
-{{--            @endcan--}}
-
-
 
             @if(auth()->user()->is_admin)
 
@@ -27,7 +21,7 @@
                     <a href="{{route('create')}}" class="addpost"> Add-post</a>
                 </li>
 
-                @endif
+            @endif
             <li>
                 <form method="post" action="{{route('logout')}}">
                     @csrf
@@ -42,23 +36,23 @@
         <p>{!! $post->content !!}</p>
     </section>
 
-        <p class="timeline">Added {{ $post->created_at->diffForHumans() }}
+    <p class="timeline">Added {{ $post->created_at->diffForHumans() }}
 
-        </p>
+    </p>
 
     <section class="edit-delete">
-{{--        @can('update',$post)--}}
-{{--            <a href="{{route('edit', $post->id )}}" class="edit-button">--}}
-{{--                edit--}}
-{{--            </a>--}}
-{{--        @endcan--}}
-{{--        --}}
+        {{--        @can('update',$post)--}}
+        {{--            <a href="{{route('edit', $post->id )}}" class="edit-button">--}}
+        {{--                edit--}}
+        {{--            </a>--}}
+        {{--        @endcan--}}
+        {{--        --}}
 
         @if(auth()->user()->is_admin)
 
-                <a href="{{route('edit', $post)}}" class="edit-button">
-                    edit
-                </a>
+            <a href="{{route('edit', $post)}}" class="edit-button">
+                edit
+            </a>
         @endif
 
 
@@ -72,17 +66,17 @@
         @endif
 
 
-{{--        @can('delete',$post)--}}
-{{--            <form method="post" action="{{route('delete', $post->id)}}">--}}
-{{--                @csrf--}}
-{{--                @method('DELETE')--}}
-{{--                <input type="submit" value="delete" class="delete-button    ">--}}
-{{--            </form>--}}
-{{--        @endcan--}}
+        {{--        @can('delete',$post)--}}
+        {{--            <form method="post" action="{{route('delete', $post->id)}}">--}}
+        {{--                @csrf--}}
+        {{--                @method('DELETE')--}}
+        {{--                <input type="submit" value="delete" class="delete-button    ">--}}
+        {{--            </form>--}}
+        {{--        @endcan--}}
     </section>
 
 
-<section class="comments">
+    <section class="comments">
         @include('comments._form')
 
 
@@ -92,8 +86,8 @@
                 <div class="commenter">  {{auth()->user()->name}}:</div>
 
                 {{ $comment->content }}</div>
-    @endforeach
-</section>
+        @endforeach
+    </section>
 </main>
 
 

@@ -92,7 +92,27 @@
 
     .content{
         width:95%;
+        margin: 7rem auto;
     }
+
+    .brand_name{
+        font-size:25px;
+
+    }
+    .post-title{
+        font-size: 20px;
+
+    }
+
+    .post-content{
+        font-size: 15px;
+    }
+
+    .logout{
+        font-size: 16px;
+    }
+
+
 }
 
 
