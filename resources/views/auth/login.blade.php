@@ -32,10 +32,20 @@
             </label>
         </div>
 
-        <a href="{{route('password.request')}}">
-            forgot your password?
-        </a>
         <button type="submit" class="btn btn-primary">Login</button>
+        <div>
+            <a href="{{route('register')}}">
+                you don't have an account? Register
+            </a>
+        </div>
+        <div>
+            <a href="{{route('password.request')}}">
+                forgot your password?
+            </a>
+            </div>
+
+
+
     </form>
 </div>
 
