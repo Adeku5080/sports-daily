@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="{{route('register')}}" class="mb-3">
+    <form method="post" action="{{route('register')}}" class="mb-3 form">
         @csrf
 
         <label class="form-label">Name</label>
