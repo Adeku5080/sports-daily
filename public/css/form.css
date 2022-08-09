@@ -1,0 +1,19 @@
+
+.dont {
+    text-decoration: none;
+    color: #000000;
+    margin-bottom: 7px;
+}
+
+
+@media (max-width: 800px) {
+    .form {
+        margin-top: 40px;
+    }
+
+    .form-control {
+        width: 50%;
+    }
+
+
+}

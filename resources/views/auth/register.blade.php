@@ -1,9 +1,10 @@
-
 <!Doctype html>
 <html>
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href={{asset('vendor/bootstrap/css/bootstrap.css')}}>
+    <link rel="stylesheet" href="{{asset("css/form.css")}}">
 </head>
 <body>
 <div class="container">
@@ -41,8 +42,6 @@
     </form>
 
 </div>
-
-
 
 
 </body>
